@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'br.com.projuris'
+version '1.0'
+
+sourceCompatibility = targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    baseName = project.name
+    archiveName = project.name + '.jar'
+    manifest {
+        attributes 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
